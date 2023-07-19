@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 
 export const Statistics = ({ state, message }) => {
-  const { good, neutral, bad, total, positiveFeedback } = state;
+  const { good, neutral, bad } = state;
+
+  const total = good + neutral + bad;
 
   return !good && !neutral && !bad ? (
     <p> {message}</p>
@@ -11,7 +13,7 @@ export const Statistics = ({ state, message }) => {
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
       <p>Total: {total}</p>
-      <p>Positive feedback: {positiveFeedback}%</p>
+      <p>Positive feedback: {Math.round((good / total) * 100)}%</p>
     </>
   );
 };

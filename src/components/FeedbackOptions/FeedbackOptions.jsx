@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({
-  countGoodFeedbacks,
-  countNeutralFeedbacks,
-  countBadFeedbacks,
-}) => {
+export const FeedbackOptions = ({ countFeedbacks }) => {
   return (
     <>
-      <button type="button" onClick={countGoodFeedbacks}>
+      <button type="button" onClick={() => countFeedbacks('good')}>
         Good
       </button>
-      <button type="button" onClick={() => countNeutralFeedbacks()}>
+      <button type="button" onClick={() => countFeedbacks('neutral')}>
         Neutral
       </button>
-      <button type="button" onClick={() => countBadFeedbacks()}>
+      <button type="button" onClick={() => countFeedbacks('bad')}>
         Bad
       </button>
     </>
@@ -21,7 +17,5 @@ export const FeedbackOptions = ({
 };
 
 FeedbackOptions.propTypes = {
-  countGoodFeedbacks: PropTypes.number,
-  countNeutralFeedbacks: PropTypes.number,
-  countBadFeedbacks: PropTypes.number,
+  countFeedbacks: PropTypes.func,
 };
