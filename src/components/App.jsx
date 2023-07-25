@@ -20,7 +20,10 @@ export class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions countFeedbacks={this.countFeedbacks} />
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            countFeedbacks={this.countFeedbacks}
+          />
         </Section>
         <Section title="Statistics">
           <Statistics state={this.state} message="There is no feedback" />

@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({ countFeedbacks }) => {
+export const FeedbackOptions = ({ options, countFeedbacks }) => {
   return (
     <>
-      <button type="button" onClick={() => countFeedbacks('good')}>
-        Good
-      </button>
-      <button type="button" onClick={() => countFeedbacks('neutral')}>
-        Neutral
-      </button>
-      <button type="button" onClick={() => countFeedbacks('bad')}>
-        Bad
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            type="button"
+            key={option}
+            onClick={() => countFeedbacks(option)}
+          >
+            {option}
+          </button>
+        );
+      })}
     </>
   );
 };
